@@ -1,0 +1,27 @@
+<div class="w-75 m-auto mt-5">
+    <h1 class="text-center" >To Do list</h1>
+    <div class="form-group">
+        <input id="taskName" type="text" class="form-control mt-5" placeholder ="Enter Your task" [(ngModel)]="value">
+        <div class="alert alert-danger mt-3 py-1 d-none" id="taskAlert">PLZ Enter Task Name that s characters with capital then 5character at most if task name consist of more than one wprd write like frist</div>
+        <button (click)="addTask()"  class="btn btn-outline-info mt-4">Add Your Task</button>
+    </div>
+
+    <table class="table text-center mt-3">
+        <thead class="table-bordered table-striped bg-dark text-light">
+            <th class="py-2">id</th>
+            <th  class="py-2">Task Name</th>
+            <th  class="py-2">Finish</th>
+            <th  class="py-2">Delete</th>
+        </thead>
+        <tbody id="tBody">
+            <tr *ngFor="let task1 of tasks; index as i">
+                <td>{{i+1}}</td>
+                <td>{{task1.taskName}}</td>
+                <td  (click)="finished($event)">finished</td>
+                <td>
+                    <button (click)="delete(i)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
